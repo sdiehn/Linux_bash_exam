@@ -19,7 +19,6 @@ df = pd.concat(df_list, ignore_index=True)
 
 timestamps_sales = pd.to_datetime(df['Timestamp'], format="%Y%m%d_%H%M")
 X = ((timestamps_sales - pd.Timestamp("1970-01-01")) / pd.Timedelta(minutes=1)).values.reshape(-1, 1)
-X = X.values.reshape(-1, 1)
 y = df['Sales'].values
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=True)
