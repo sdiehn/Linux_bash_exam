@@ -1,6 +1,10 @@
-# =============================================================================
-# Ce script preprocessed.sh exécute le programme src/preprocessed.py
-# et enregistre les détails de son exécution dans le fichier de log
-# logs/preprocessed.logs.
-# =============================================================================
+#!/bin/bash
 
+timestamp=$(date "+%Y%m%d_%H%M")
+filename="../data/processed/sales_processed_${timestamp}.csv"
+mkdir -p ../data/processed
+touch "$filename"
+
+python3 ../src/preprocessed.py >> "$filename"
+
+echo "[$timestamp]: preprocessed file >> ../logs/preprocessed.logs"
