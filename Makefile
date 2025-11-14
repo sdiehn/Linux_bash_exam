@@ -1,5 +1,4 @@
-.PHONY: tests bash all
-
+.PHONY: tests
 bash:
 	python3 -m venv .linux_venv && \
 	source .linux_venv/bin/activate && \
@@ -12,5 +11,4 @@ tests:
 	pytest tests/test_model.py
 
 all:
-	@echo "Available targets: bash, tests"
 

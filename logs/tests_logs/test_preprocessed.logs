@@ -4,3 +4,12 @@ Aucun fichier prétraité trouvé.
 
 === Début des tests (2025-11-03 17:29:49) ===
 Aucun fichier prétraité trouvé.
+
+=== Test started (2025-11-14 13:37:40) ===
+Starting structure test for the preprocessed file
+Loaded file: data/processed/sales_processed_20251114_1336.csv
+Timestamp column check: OK (not present)
+Integer type check: OK (all columns are integers)
+Test completed for the preprocessed file.
+=== Test ended ===
+

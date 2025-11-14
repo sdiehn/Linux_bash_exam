@@ -5,7 +5,7 @@ API_URL="http://0.0.0.0:5000"
 timestamp=$(date "+%Y%m%d_%H%M")
 filename="../data/raw/sales_${timestamp}.csv"
 touch "$filename"
-echo "Timestamp,Model,Sales" >> "$filename"
+echo "timestamp,model,sales" >> "$filename"
 
 while read model;
 do

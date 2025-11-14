@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os
 
 DATA_PATH="../data/raw"
@@ -12,7 +13,18 @@ latest_file = max(raw_folder, key=lambda x: os.path.getctime(os.path.join(DATA_P
 latest_file_path = os.path.join(DATA_PATH, latest_file)
 df = pd.read_csv(latest_file_path)
 df_cleaned = df.dropna()
-df_cleaned = df_cleaned[df_cleaned['Sales'] >= 0]
-df_cleaned = df_cleaned[df_cleaned['Sales'] % 1 == 0]
+df_cleaned = df_cleaned[df_cleaned['sales'] >= 0]
+df_cleaned = df_cleaned[df_cleaned['sales'] % 1 == 0]
 
-print(df_cleaned.to_csv(index=False))
+timestamp_sales = pd.to_datetime(df_cleaned['timestamp'].iloc[0], format="%Y%m%d_%H%M")
+X = ((timestamp_sales - pd.Timestamp("1970-01-01")) / pd.Timedelta(minutes=1))
+df_grouped = df_cleaned.groupby('timestamp', as_index=False)['sales'].sum()
+
+y = df_grouped['sales']
+
+df_xy = pd.DataFrame({
+    "X": int(X),
+    "y": y.values.astype(int)
+})
+
+print(df_xy.to_csv(index=False))
