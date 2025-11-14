@@ -1,1 +1,1 @@
-*/3 * * * * /home/ubuntu/Linux_bash_exam/scripts/collect.sh && ./home/ubuntu/Linux_bash_exam/scripts/preprocessed.sh && /home/ubuntu/Linux_bash_exam/scripts/train.sh
+*/3 * * * * /home/ubuntu/Linux_bash_exam/scripts/collect.sh && /home/ubuntu/Linux_bash_exam/scripts/preprocessed.sh && /home/ubuntu/Linux_bash_exam/scripts/train.sh
